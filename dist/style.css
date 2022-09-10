@@ -49,6 +49,10 @@ header {
     background-color: var(--second-color);
 }
 
+.active-tab {
+    background-color: var(--second-color);
+}
+
 /* Main */
 #main-sec-container { 
     flex: 1;

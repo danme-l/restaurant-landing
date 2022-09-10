@@ -31,14 +31,17 @@ contactBtn.onclick = goToContact;
 function goToHome() {
     mainSectionContainer.innerHTML = '';
     mainSectionContainer.append(createHomepage());
+    setActiveTab(homeBtn);
 };
 function goToMenu() {
     mainSectionContainer.innerHTML = '';
     mainSectionContainer.append(createMenu());
+    setActiveTab(menuBtn);
 };
 function goToContact() {
     mainSectionContainer.innerHTML = '';
     mainSectionContainer.append(createContactPage());
+    setActiveTab(contactBtn);
 };
 
 header.append(homeBtn, menuBtn, contactBtn);
@@ -51,4 +54,16 @@ mainSectionContainer.setAttribute('id','main-sec-container');
 // Main
 content.append(header,mainSectionContainer,footer);
 
-window.onload(mainSectionContainer.append(createHomepage()));
+window.onload = () => {
+    mainSectionContainer.append(createHomepage());
+    setActiveTab(homeBtn);
+};
+
+// highlight current page on the nav bar
+function setActiveTab(btn) {
+    const buttons = document.querySelectorAll(".header-btn");
+    buttons.forEach((b) => {
+        b.classList.remove('active-tab');
+    })
+    btn.classList.add('active-tab');
+};
